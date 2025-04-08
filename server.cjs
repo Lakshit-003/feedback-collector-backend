@@ -17,9 +17,12 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors()); // Allow all origins for development
 app.use(bodyParser.json());
-
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
 // Data storage setup
 let feedbacks = [];
 let nextId = 1;
